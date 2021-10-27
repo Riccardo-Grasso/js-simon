@@ -53,7 +53,7 @@ function confronto(array1, array2) {
     if (elementiSbagliati.length == 0) {
         alert("Complimenti, hai indovinato tutti i numeri!");
     } else {
-        alert(`Hai commesso ${elementiSbagliati.length} errori!\nI numeri ${elementiSbagliati} sono sbagliati!`);
+        alert(`Hai commesso ${elementiSbagliati.length} errori!\nI numeri "${elementiSbagliati}" sono sbagliati!`);
     }
 }
 
