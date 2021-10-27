@@ -1,11 +1,9 @@
-let counter = 0;
+const numeroValori = 5;
 const arrayNumeriRandom = [];
-const arrayUtente = [];
+let arrayRandom;
+let arrayUtente = [];
 
-
-const arrayRandomOrdinato = popolareArray();
-const arrayUtenteOrdinato = inserireNumeri();
-
+let errori = 0;
 
 function numeriRandom(min, max) {
 
@@ -13,12 +11,10 @@ function numeriRandom(min, max) {
     return numeroRandom;
 }
 
-
 function popolareArray() {
 
-    for (let i = 0; i < 5; i++) {
-        arrayNumeriRandom[i] = numeriRandom(0, 100);
-        counter++;
+    for (let i = 0; i < numeroValori; i++) {
+        arrayNumeriRandom[i] = numeriRandom(0, 100).toString();
     }
 
     const arrayDaStampare = [];
@@ -26,45 +22,41 @@ function popolareArray() {
         arrayDaStampare[i] = arrayNumeriRandom[i].toString();
     }
     console.log("Numeri da ricordare: " + arrayNumeriRandom);
-    console.log(`Numero valori: ${counter}`);
-
-    const arrayRandomOrdinato = arrayNumeriRandom.sort((a, b) => a - b);
-    console.log("Array random ordinato: " + arrayRandomOrdinato);
+    console.log(`Numero valori: ${numeroValori}`);
 
     alert(`Memorizza questi numeri:\n${arrayDaStampare}`.replaceAll(",", " - "));
 
-    return {
-        arrayRandomOrdinato,
-        counter
-    };
+    return arrayNumeriRandom;
 }
 
-
+arrayRandom = popolareArray();
+console.log("length random: " + arrayRandom.length);
 
 function inserireNumeri() {
-    for (let i = 0; i < counter; i++) {
-        arrayUtente.push(prompt("Inserisci i numeri che ricordi, uno alla volta: "));
-    }
+    let arrayUtente = prompt("Inserisci i numeri che ricordi, separati da una virgola: ").split(",");
     console.log("Array utente: " + arrayUtente);
-
-    const arrayUtenteOrdinato = arrayUtente.sort((a, b) => a - b);
-    console.log("Array utente ordinato: " + arrayUtenteOrdinato);
-
-    return arrayUtenteOrdinato;
+    confronto(arrayRandom, arrayUtente);
 }
-setTimeout(inserireNumeri, 5000);
+setTimeout(inserireNumeri, 1000);
+
+
+
 
 
 function confronto(array1, array2) {
+    console.log(array1, array1.length);
+    console.log(array2, array2.length);
 
+    for (let i = 0; i < array1.length; i++) {
 
-    for (let i = 0; i < 5; i++) {
-        if (array1[i] == array2[i]) {
-            console.log(`Numero: ${array1[i]} indovinato`);
+        if (array1.includes(array2[i])) {
+            console.log(`Valore ${array2[i]} corretto`);
         } else {
-            console.log(`Numero: ${array1[i]} indovinato`);
+            errori++;
+            console.log(`Valore ${array2[i]} errato`);
         }
+
     }
+    console.log(`Hai commesso: ${errori} errori`);
 }
 
-confronto(arrayRandomOrdinato, arrayUtenteOrdinato);
