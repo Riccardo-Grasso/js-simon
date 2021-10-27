@@ -2,8 +2,7 @@ const numeroValori = 5;
 const arrayNumeriRandom = [];
 let arrayRandom;
 let arrayUtente = [];
-
-let errori = 0;
+let elementiSbagliati = [];
 
 function numeriRandom(min, max) {
 
@@ -40,23 +39,21 @@ function inserireNumeri() {
 setTimeout(inserireNumeri, 1000);
 
 
-
-
-
 function confronto(array1, array2) {
     console.log(array1, array1.length);
     console.log(array2, array2.length);
 
     for (let i = 0; i < array1.length; i++) {
 
-        if (array1.includes(array2[i])) {
-            console.log(`Valore ${array2[i]} corretto`);
-        } else {
-            errori++;
-            console.log(`Valore ${array2[i]} errato`);
+        if (!array1.includes(array2[i])) {
+            elementiSbagliati.push(array2[i]);
         }
-
     }
-    console.log(`Hai commesso: ${errori} errori`);
+
+    if (elementiSbagliati.length == 0) {
+        alert("Complimenti, hai indovinato tutti i numeri!");
+    } else {
+        alert(`Hai commesso ${elementiSbagliati.length} errori!\nI numeri ${elementiSbagliati} sono sbagliati!`);
+    }
 }
 
