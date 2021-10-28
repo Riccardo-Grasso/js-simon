@@ -3,6 +3,7 @@ const arrayNumeriRandom = [];
 let arrayRandom;
 let arrayUtente = [];
 let elementiSbagliati = [];
+let elementiCorretti = [];
 
 function numeriRandom(min, max) {
 
@@ -29,7 +30,6 @@ function popolareArray() {
 }
 
 arrayRandom = popolareArray();
-console.log("length random: " + arrayRandom.length);
 
 function inserireNumeri() {
     let arrayUtente = prompt("Inserisci i numeri che ricordi, separati da una virgola: ").split(",");
@@ -47,13 +47,15 @@ function confronto(array1, array2) {
 
         if (!array1.includes(array2[i])) {
             elementiSbagliati.push(array2[i]);
+        } else {
+            elementiCorretti.push(array2[i]);
         }
     }
 
     if (elementiSbagliati.length == 0) {
         alert("Complimenti, hai indovinato tutti i numeri!");
     } else {
-        alert(`Hai commesso ${elementiSbagliati.length} errori!\nI numeri "${elementiSbagliati}" sono sbagliati!`);
+        alert(`Hai indovinato ${elementiCorretti.length} numeri su ${numeroValori}!\nI numeri "${elementiCorretti}" sono giusti!\nI numeri "${elementiSbagliati}" sono sbagliati!`);
     }
 }
 
