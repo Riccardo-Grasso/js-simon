@@ -38,7 +38,6 @@ function inserireNumeri() {
 }
 setTimeout(inserireNumeri, 1000);
 
-
 function confronto(array1, array2) {
     console.log(array1, array1.length);
     console.log(array2, array2.length);
