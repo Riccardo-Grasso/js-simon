@@ -32,7 +32,7 @@ function popolareArray() {
 arrayRandom = popolareArray();
 
 function inserireNumeri() {
-    let arrayUtente = prompt("Inserisci i numeri che ricordi, separati da una virgola, senza spazi: ").split(",");
+    let arrayUtente = prompt("Inserisci i numeri che ricordi, separati da uno spazio: ").split(" ");
     console.log("Array utente: " + arrayUtente);
     confronto(arrayRandom, arrayUtente);
 }
