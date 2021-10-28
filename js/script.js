@@ -59,4 +59,3 @@ function confronto(array1, array2) {
         alert(`Hai indovinato ${elementiCorretti.length} numeri su ${numeroValori}!\nI numeri "${elementiCorretti}" sono giusti!\nI numeri "${elementiSbagliati}" sono sbagliati!`);
     }
 }
-
