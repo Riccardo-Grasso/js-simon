@@ -32,7 +32,7 @@ function popolareArray() {
 arrayRandom = popolareArray();
 
 function inserireNumeri() {
-    let arrayUtente = prompt("Inserisci i numeri che ricordi, separati da una virgola: ").split(",");
+    let arrayUtente = prompt("Inserisci i numeri che ricordi, separati da una virgola, senza spazi: ").split(",");
     console.log("Array utente: " + arrayUtente);
     confronto(arrayRandom, arrayUtente);
 }
@@ -54,6 +54,8 @@ function confronto(array1, array2) {
 
     if (elementiSbagliati.length == 0) {
         alert("Complimenti, hai indovinato tutti i numeri!");
+    } else if (elementiCorretti.length == 0) {
+        alert("Mi dispiace, non hai indovinato nessun numero!");
     } else {
         alert(`Hai indovinato ${elementiCorretti.length} numeri su ${numeroValori}!\nI numeri "${elementiCorretti}" sono giusti!\nI numeri "${elementiSbagliati}" sono sbagliati!`);
     }
